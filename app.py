@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_script import Manager
 from models import db
+from formas import Salida
 from datetime import datetime
 import os
 
@@ -28,7 +29,8 @@ def entrada():
 
 @app.route('/salida', methods=['GET','POST'])
 def salida():
-    return render_template('salida.html')
+    forma = Salida()
+    return render_template('salida.html', forma=forma)
 
 @app.route('/reporte')
 def reporte():
