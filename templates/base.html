@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <style>
+
+.logo{
+    width: 50px;
+    height: 50px;}
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/css/materialize.min.css" media="all"/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' charset="UTF-8"/>
+    <title>AIF | Control de Muestras</title>
+    {% endblock %}
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper blue darken-4">
+            <a href="/" class="brand-logo left bold">
+                <img src="static/images/logo.png" alt="Logo" class='logo' />
+                Control de Muestras
+            </a>
+            <ul class="right">
+            <li>
+                <a href="/salida">
+                    Salida
+                </a>
+            </li>
+            <li><a href="/entrada">
+                Entrada
+            </a>
+            </li>
+            </ul>
+            
+        </div>
+
+    </nav>
+    <main>
+    {% block buscador %}
+        <div id="index-banner" class="section no-pad-bot">
+            <div class="container">
+                <div class='row center'>
+                    <div class="col s12">
+                    <form action="/" method='GET'>
+                        <input type="text" name='buscar'>
+                        <input type='submit' value='Buscar' class='btn-large waves-effect waves-light blue'>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block contenido %}
+    {% endblock %}
+
+    </main>
+{% block scripts %}
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="static/js/materialize.min.js"></script>
+<script src='static/js/init.js'></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class='row'>
+    <div class="col s12 divider"></div>
+</div>
+
+<div class='row'>
+    <div class="col s8 blue darken-4 offset-s2 hoverable">
+        <div class='card-panel'>
+            <h5 class="center blue-text text-darken-4 bold-text">Registro de Salida</h5>
+            <div class="row">
+                <div class='input-field col s12'>
+                    <input type="text" id='empleado' class='validate'>
+                    <label for='empleado'>Numero de Empleado</label>
+                </div>
+                <div class='input-field col s12'>
+                    <textarea id='muestra' class='materialize-textarea'></textarea>
+                    <label for='muestra'>Muestra/s</label>
+                </div>
+                <div class='input-field col s12'>
+                    <input type='text' id='encargado' class='validate'>
+                    <label for='encargado'>Encargado</label>
+                </div>
+                <div class='col s12'>
+                        <input type='submit' value='Salida' class='btn-large waves-effect waves-light blue right'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
