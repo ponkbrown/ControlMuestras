@@ -44,8 +44,9 @@
             <div class="container">
                 <div class='row center'>
                     <div class="col s12">
-                    <form action="/" method='GET'>
-                        <input type="text" name='buscar'>
+                    <form action="/buscar" method='POST'>
+                        {{ g.buscar.csrf_token }}
+                        {{ g.buscar.buscar }}
                         <input type='submit' value='Buscar' class='btn-large waves-effect waves-light blue'>
                     </form>
                     </div>
