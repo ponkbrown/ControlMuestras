@@ -7,6 +7,6 @@ class FormaBuscar(FlaskForm):
 
 class FormaSalida(FlaskForm):
     fecha =  DateTimeField('Fecha')
-    muestras = TextAreaField('Muestras')
+    muestras = TextAreaField('Muestras', validators=[DataRequired()])
     empleado = DecimalField('Empleado', validators=[DataRequired()])
-    encargado = DecimalField('Encargado')
+    encargado = DecimalField('Encargado', validators=[DataRequired()])
