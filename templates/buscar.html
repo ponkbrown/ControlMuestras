@@ -16,15 +16,21 @@
                         <th data-field='Empleado'>Empleado</th>
                         <th data-field='Encargado'>Encargado</th>
                         <th data-field='Fecha'>Fecha</th>
+                        <th data-field='Boton'></th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for muestra in query %}
+                        {% if muestra.sku %}
                     <tr>
-                        <td> {{ query }} </td>
-                        <td> 4576 </td>
-                        <td> 2222 </td>
-                        <td> 12-Sep-2016</td>
+                        <td> {{ muestra.sku }} </td>
+                        <td> {{ muestra.ordenes[-1].usuario.numero }} </td>
+                        <td> {{ muestra.ordenes[-1].admin.numero }} </td>
+                        <td> {{ muestra.ordenes[-1].timestamp }}</td>
+                        <td> <a class="waves-effect waves-light btn red" href='entrada/{{ muestra.sku }}'><i class="material-icons left">done</i>Entregar</a></td>
                     </tr>
+                        {% endif %}
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -32,4 +38,3 @@
 </div>
 
 {% endblock %}
-

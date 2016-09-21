@@ -8,6 +8,7 @@ class Orden(db.Model):
     muestra_id = db.Column(db.Integer, db.ForeignKey('muestra.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
     admin_id = db.Column(db.Integer, db.ForeignKey('admin.id'))
+    tipo = db.Column(db.String(7), nullable=False) # Entrada o Salida
     timestamp = db.Column(db.DateTime)
 
 class Muestra(db.Model):

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class='row'>
+    <div class="col s12 divider"></div>
+</div>
+
+<div class='row'>
+    <div class="col s8 blue offset-s2 hoverable">
+        <div class='card-panel'>
+            <h5 class="center blue-text text-darken-4 bold-text">Registro de Entrada</h5>
+            <h5 class='center blue-text text-darken-4 bold-text'>Pieza: {{ pieza.sku }} </h5>
+            <div class="row">
+                <form method='POST' action='/entrada/{{ pieza.sku }}'>
+                    {{ entrada.csrf_token }}
+                <div class='input-field col s12'>
+                    {{ entrada.empleado(size = 20, class='validate') }}
+                    {{ entrada.empleado.label }}
+                </div>
+                <div class='input-field col s12'>
+                    {{ entrada.encargado(size = 20, class='validate') }}
+                    {{ entrada.encargado.label }}
+                </div>
+                <div class='col s12'>
+                    <input type='submit' value='Entrega' class='btn-large waves-effect waves-light blue right'>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

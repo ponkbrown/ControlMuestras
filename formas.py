@@ -6,7 +6,10 @@ class FormaBuscar(FlaskForm):
     buscar = StringField('Buscar', validators=[DataRequired()])
 
 class FormaSalida(FlaskForm):
-    fecha =  DateTimeField('Fecha')
     muestras = TextAreaField('Muestras', validators=[DataRequired()])
+    empleado = DecimalField('Empleado', validators=[DataRequired()])
+    encargado = DecimalField('Encargado', validators=[DataRequired()])
+
+class FormaEntrada(FlaskForm):
     empleado = DecimalField('Empleado', validators=[DataRequired()])
     encargado = DecimalField('Encargado', validators=[DataRequired()])
