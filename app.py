@@ -14,8 +14,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.secret_key = 'esta es una llave secreta'
-#app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///' + os.path.join(basedir, 'muestras.sqlite')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://muestras:muestras@localhost/muestras'
+app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///' + os.path.join(basedir, 'muestras.sqlite')
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://muestras:muestras@localhost/muestras'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
@@ -35,8 +35,11 @@ def main():
 
 @app.route('/buscar', methods=['GET', 'POST'])
 def buscar():
-    if not g.buscador.validate_on_submit():
-        return redirect(url_for('main'))
+    if g.buscador.data['buscar'] == '':
+        # Si el campo de buscar esta vacio, muestra todas las muetras que estan fuera (-1)
+        muestraObj = db.session.query(Muestra).filter_by(cantidad=-1).all()
+        lista = muestraObj
+        return render_template('buscar.html', query = lista)
 
     lista = sanMuestras(g.buscador.buscar.data) # sanizamos la busqueda para buscarlo en la base de datos
     for item in range(len(lista)):

@@ -3,7 +3,7 @@ from wtforms import StringField, TextAreaField, DecimalField, DateTimeField, Boo
 from wtforms.validators import DataRequired
 
 class FormaBuscar(FlaskForm):
-    buscar = StringField('Buscar', validators=[DataRequired()])
+    buscar = StringField('Buscar')
 
 class FormaSalida(FlaskForm):
     muestras = TextAreaField('Muestras', validators=[DataRequired()])
